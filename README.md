@@ -16,6 +16,39 @@ Handles reconnects, heartbeats, backpressure, and parsing — so you can focus o
 
 ---
 
+## Why SocketFlow?
+
+Raw WebSockets are powerful but brittle. Without reconnects, keepalives, or backpressure, your app can easily break under load or when the network hiccups. **SocketFlow** gives you production-grade reliability out of the box.  
+
+Here are some scenarios where you’d want something stronger than a basic WebSocket client:
+
+- **Algorithmic Trading & Market Data**  
+  - Consume live trade ticks from APIs like Polygon.io, Finnhub, or Alpaca.  
+  - Never miss critical updates due to disconnects.  
+  - Backpressure ensures bursts of messages don’t overload your system.  
+
+- **AI / ML Data Pipelines**  
+  - Stream continuous sensor or telemetry data into an AI model.  
+  - Stable ingestion with retries prevents gaps in training data.  
+  - Pipelining real-time events into an inference engine requires reliable delivery.  
+
+- **Realtime Dashboards & Monitoring**  
+  - System health dashboards, live metrics, or observability streams.  
+  - Keeps dashboards connected, even during network drops.  
+  - Ensures user-facing dashboards don’t freeze due to missed pings.  
+
+- **Collaborative Apps**  
+  - Multiplayer games, whiteboards, chat, or collaborative editors.  
+  - Smooth reconnection ensures users don’t “drop out” during brief disconnects.  
+
+- **IoT & Edge Devices**  
+  - Devices pushing metrics or telemetry up to the cloud.  
+  - Handles flaky connections gracefully.  
+
+In all of these, a **production-ready WebSocket client** like SocketFlow can be the difference between *“cool demo”* and *“production system that never misses a beat.”*
+
+---
+
 ## Installation
 
 ```bash
@@ -175,13 +208,6 @@ idle → connecting → open
          ↑          ↓
         reconnecting ← close/error
 ```
-
----
-
-## 🧪 Roadmap
-- [ ] Async iterator support (`for await (const msg of socketFlow) {}`)
-- [ ] Built-in metrics exporter (Prometheus / OpenTelemetry)
-- [ ] Subscription manager (auto-resubscribe to channels after reconnect)
 
 ---
 
