@@ -20,7 +20,11 @@
   "keywords": ["websocket", "stream", "typescript"],
   "author": "Your Name",
   "license": "MIT",
-  "files": ["dist"],                  
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],                  
   "devDependencies": {
     "tsup": "^8.0.0",
     "typescript": "^5.5.0",
