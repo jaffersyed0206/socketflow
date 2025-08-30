@@ -1,6 +1,6 @@
 # SocketFlow
 
-⚡ A resilient, typed, isomorphic WebSocket client for **Node.js** and **Browsers**.  
+A resilient, typed, isomorphic WebSocket client for **Node.js** and **Browsers**.  
 Handles reconnects, heartbeats, backpressure, and parsing — so you can focus on your business logic.
 
 ---
