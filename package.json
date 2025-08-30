@@ -1,36 +1,59 @@
 {
-  "name": "socketflow",                 
+  "name": "socketflow",
   "version": "0.1.0",
   "description": "Resilient WebSocket source for Node & Browser",
-  "main": "dist/index.cjs",              
-  "module": "dist/index.js",            
-  "types": "dist/index.d.ts",            
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "default": "./dist/index.js"
     }
   },
-  "scripts": {
-    "build": "tsup",
-    "prepare": "npm run build",          
-    "test": "echo \"no tests yet\""
-  },
-  "keywords": ["websocket", "stream", "typescript"],
-  "author": "Your Name",
-  "license": "MIT",
   "files": [
     "dist",
     "README.md",
     "LICENSE"
-  ],                  
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"no tests yet\""
+  },
+  "keywords": ["websocket", "realtime", "stream", "typescript", "isomorphic"],
+  "author": "Jaffer Syed",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaffersyed0206/socketflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jaffersyed0206/socketflow/issues"
+  },
+  "homepage": "https://github.com/jaffersyed0206/socketflow#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
+    "@types/node": "^22.0.0",
     "tsup": "^8.0.0",
-    "typescript": "^5.5.0",
-    "@types/node": "^22.0.0"
+    "typescript": "^5.5.0"
   },
   "peerDependencies": {
     "ws": "^8.18.0"
+  },
+  "peerDependenciesMeta": {
+    "ws": {
+      "optional": true
+    }
   }
 }
