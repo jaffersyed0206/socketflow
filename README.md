@@ -87,7 +87,7 @@ socket.start();
 
 ---
 
-## ⚙️ API
+## API
 
 ### `new SocketFlow<T>(options: WSOptions<T>)`
 
@@ -165,7 +165,7 @@ Create a new WebSocket client.
 
 ---
 
-## 🔒 Example: Custom Retry Policy
+## Example: Custom Retry Policy
 
 ```ts
 const socket = new SocketFlow<MyMsg>({
@@ -179,7 +179,7 @@ const socket = new SocketFlow<MyMsg>({
 
 ---
 
-## ⚡ Example: Backpressure
+## Example: Backpressure
 
 ```ts
 const socket = new SocketFlow<MyMsg>({
@@ -199,7 +199,7 @@ const socket = new SocketFlow<MyMsg>({
 
 ---
 
-## 🛠 State Machine
+## State Machine
 
 ```
 idle → connecting → open
@@ -209,6 +209,6 @@ idle → connecting → open
 
 ---
 
-## 📜 License
+## License
 
 MIT © 2025
