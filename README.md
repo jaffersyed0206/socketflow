@@ -53,8 +53,6 @@ In all of these, a **production-ready WebSocket client** like SocketFlow can be 
 
 ```bash
 npm install socketflow
-# or
-yarn add socketflow
 ```
 
 For **Node.js**, also install the [`ws`](https://www.npmjs.com/package/ws) package:
