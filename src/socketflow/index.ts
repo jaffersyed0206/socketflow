@@ -20,6 +20,7 @@ export interface WSOptions<T = any> {
 
   log?: Logger;
   parse?: (raw: string) => T | undefined;
+  headers?: Record<string, string>;
 
   pingIntervalMs?: number;
   pongTimeoutMs?: number;
@@ -113,8 +114,20 @@ export class SocketFlow<T = any> {
     if (!url) throw new Error("SocketFlow: url or getUrl() required");
 
     const Impl = this.opts.wsImpl ?? (WebSocket as any);
-    const ws: any = new Impl(url, this.opts.protocols);
+
+    let ws: any;
+    if (this.opts.headers && Impl === (WebSocket as any)) {
+      // browser WebSocket doesn’t support headers
+      ws = new Impl(url, this.opts.protocols);
+    } else if (this.opts.headers) {
+      // Node ws supports headers
+      ws = new Impl(url, this.opts.protocols, { headers: this.opts.headers });
+    } else {
+      ws = new Impl(url, this.opts.protocols);
+    }
+
     this.ws = ws;
+
 
     // Browser style
     if (typeof ws.addEventListener === "function") {
